@@ -6,7 +6,7 @@ body {
 	width: 100%;
 	height: 100%;
 	margin: auto;
-	background-color: #ececec;
+	background-color: #fff;
 }
 /*======== pages containers css ======*/
 .site_container{
@@ -21,6 +21,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 5vh;
 }
 /*=========== nav bar css ==========*/
 .navbar_bg{
@@ -61,23 +62,27 @@ body {
 	color: #f3540a;
 	transition: all .3s ease-in-out;
 }
+.active{
+	color: #f3540a;
+}
 /*======== forms css ========*/
 .login_box{
 	width: 35%;
-	height: 50vh;
+	min-height: 40vh;
 	background-color:#f8a460;
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .6);
+	padding: 40px 0px;
 }
 .form1{
 	width: 90%;
-	height: 43vh;
 	border-radius: 5px;
 	/* margin: 20px auto; */
 	border: 1px solid #fff;
+	padding-bottom: 10px;
 }
 #form1_fh{
 	width: 60%;
@@ -138,9 +143,207 @@ body {
 	color: #fff;
 	font-weight: bold;
 }
+.form2{
+	width: 70%;
+	border: 2px solid #f8a460;
+	border-radius: 5px;
+	margin: auto;
+	padding: 30px;
+	margin-bottom: 60px;
+}
+.form2-label{
+	margin-left: 16%;
+	text-transform: capitalize;
+	color: #666;
+	margin-bottom: 10px;
+}
+#form2-img{
+	margin-left: 15%;
+	margin-bottom: 20px;
+}
+#form2-input{
+	width: 70%;
+	height: 40px;
+	outline: none;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	margin-left: 15%;
+	padding-left: 10px;
+}
+#form2-input:focus{
+	box-shadow:	0px 0px 3px 0px rgba(0, 0, 0, .3);
+	transition: all .2s ease-in;
+}
+#form2-submit{
+	width: 70%;
+	height: 40px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	margin-left: 15%;
+	background-color: #f86909;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+#form2-submit:hover{
+	background-color: #e24c06;
+	box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, .8);
+}
+/*========== links css ============*/
+.home{
+	width: 100%;
+	min-height: 100vh;
+	margin-bottom: 60px;
+}
+.slide1{
+	width: 100%;
+	min-height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, .4),rgba(0, 0, 0, .4)), 
+				url(../img/groundnut1.jpg)center/cover no-repeat;
+}
+.slide2{
+	width: 100%;
+	min-height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, .4),rgba(0, 0, 0, .4)),
+				url(../img/garlic2.jpg)center/cover no-repeat;
+}
+.slide3{
+	width: 100%;
+	min-height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, .4),rgba(0, 0, 0, .4)),
+				url(../img/maize1.jpg)center/cover no-repeat;
+}
 
-
-
+.buy{
+	width: 95%;
+	min-height: 100vh;
+	border: 1px solid red;
+	margin: auto;
+	padding-top: 50px;
+	padding-bottom: 40px;
+	margin-bottom: 100px;
+}
+.buy-head-bg{
+	width: 150px;
+	background-color: #e24c06;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 10px;
+	margin-left: 30px;
+	margin-bottom: 40px;
+}
+.buy_pros{
+	width: 100%;
+	min-height: 50vh;
+	padding: 30px 0px;
+	margin-bottom: 40px;
+}
+.pro_img{
+	height: 400px;
+	padding-top: 30px;
+	text-align: center;
+	border-radius: 5px;
+}
+.pro_img:hover{
+	box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, .6);
+	border: 1px solid #e24c06;
+	background-color: #fff;
+}
+.pro_img img{
+	width: 95%;
+	height: 250px;
+	border-radius: 5px;
+}
+.pro_title{
+	margin-top: 20px;
+	color: #e24c06;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	margin-bottom: 20px;
+}
+.pro_img a{
+	background-color: #e24c06;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 5px 30px;
+}
+.breadcrumb a{
+	text-transform: capitalize;
+	text-decoration: none;
+	font-style: italic;
+	font-size: 1.1em;
+	color: #000;
+}
+.breadcrumb a:hover{
+	color: #f3540a;
+}
+/*============ tables css ==============*/
+.record-table{
+	width: 90%;
+	min-height: 70vh;
+	margin: 40px auto;
+}
+.record-table h4{
+	text-align: center;
+	color: #f86909;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 60px;
+	margin-bottom: 40px;
+}
+.all-table thead{
+	background-color: #f86909;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+}
+.all-table tbody{
+	background-color: #f58529;
+	text-align: center;
+	text-transform: capitalize;
+	color: #fff;
+	cursor: pointer;
+}
+.all-table tbody tr:hover{
+	background-color: #f89c51;
+}
+.cart-btn1{
+	margin-bottom: 10px;
+}
+.cart-btn1 a{
+	background-color: #22852f;
+	color: #fff;
+	text-decoration: none;
+	padding: 5px 30px;
+}
+.cart-btn2 a{
+	background-color: #f50d53;
+	color: #fff;
+	text-decoration: none;
+	padding: 5px 20px;
+}
+/*============== add produce css =======*/
+.add-produce{
+	width: 80%;
+	min-height: 90vh;
+	margin: auto;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+.produce-h{
+	text-align: center;
+	text-transform: capitalize;
+	font-weight: bold;
+	color: #fc7f19;
+	margin-bottom: 30px;
+}
+/*============= footer ==================*/
 footer{
 	width: 100%;
 	height: 5vh;
