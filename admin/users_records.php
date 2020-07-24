@@ -1,6 +1,10 @@
 <?php
+include_once "../init.php";
 $title = "USERS RECORDS";
 include_once "./_header.php";
+if (!isset($_SESSION) || !$_SESSION['user']['account_type'] == 'admin') {
+    header("location: ../login.php");
+}
 ?>
 <section class="record-table">
     <h4>user's information</h4>

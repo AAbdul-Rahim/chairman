@@ -1,6 +1,11 @@
 <?php
+include_once "../init.php";
 $title = "HOME";
 include_once "./_header.php";
+// var_dump($_SESSION);
+if (!isset($_SESSION) || !$_SESSION['user']['account_type'] == 'admin') {
+    header("location: ../login.php");
+}
 ?>
 
 <section id="home" class="home">
