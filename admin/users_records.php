@@ -5,13 +5,20 @@ include_once "./_header.php";
 if (!isset($_SESSION) || !$_SESSION['user']['account_type'] == 'admin') {
     header("location: ../login.php");
 }
+
+// get all the available registered users
+$sql = "SELECT * FROM users";
+$query = mysqli_query($connection, $sql);
+
+
+
 ?>
 <section class="record-table">
     <h4>user's information</h4>
     <table class="table table-borderless all-table">
         <thead>
             <tr>
-                <th scope="col">s/n</th>
+
                 <th scope="col">user name</th>
                 <th scope="col">account type</th>
                 <th scope="col">email</th>
@@ -20,38 +27,28 @@ if (!isset($_SESSION) || !$_SESSION['user']['account_type'] == 'admin') {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>21/43/6374</td>
-                <td>
-                    <span class="cart-btn1">
-                        <a href="">update</a>
-                    </span>
-                    <span class="cart-btn2">
-                        <a href="">remove</a>
-                    </span>
+            <?php if (mysqli_num_rows($query) > 0) : ?>
+                <?php while ($data = mysqli_fetch_assoc($query)) : ?>
 
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>21/43/6374</td>
-                <td>
-                    <span class="cart-btn1">
-                        <a href="">update</a>
-                    </span>
-                    <span class="cart-btn2">
-                        <a href="">remove</a>
-                    </span>
+                    <tr>
 
-                </td>
-            </tr>
+                        <td><?= $data['username'] ?></td>
+                        <td><?= $data['account_type'] ?></td>
+                        <td><?= $data['email'] ?></td>
+                        <td><?= $data['phone'] ?></td>
+                        <td>
+                            <span class="cart-btn1">
+                                <a href="update_user_records.php?username=<?= $data['username'] ?>">update</a>
+                            </span>
+                            <span class="cart-btn2">
+                                <a onclick="removeUser('<?= $data['username']; ?>')">remove</a>
+                            </span>
+
+                        </td>
+                    </tr>
+                <?php endwhile ?>
+            <?php endif ?>
+
         </tbody>
     </table>
 </section>
@@ -81,6 +78,14 @@ if (!isset($_SESSION) || !$_SESSION['user']['account_type'] == 'admin') {
 <script src="../js/bootstrap.min.js" charset="utf-8"></script>
 <script src="../js/jquery-3.4.1.min.js" charset="utf-8"></script>
 <script src="../js/main.js" charset="utf-8"></script>
+
+<script>
+    function removeUser(uid) {
+
+        if (confirm("Are you sure you want to delete"))
+            window.location.href = "delete.php?username=" + uid;
+    }
+</script>
 </body>
 
 </html>
