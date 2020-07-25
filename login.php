@@ -6,18 +6,16 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     login($username, $password);
-    if (isset($_SESSION) && $_SESSION['user']['account_type'] == 'admin') {
-        header("location: admin/home.php");
-    } else if (isset($_SESSION) && $_SESSION['user']['account_type'] == 'seller') {
-        header("location: seller/home.php");
-    } else if (isset($_SESSION) && $_SESSION['user']['account_type'] == 'buyer') {
-        header("location: buyer/home.php");
-    }
+    // if (isset($_SESSION) || $_SESSION['user']['account_type'] == 'admin') {
+    //     header("location: admin/home.php");
+    // } else if (isset($_SESSION) || $_SESSION['user']['account_type'] == 'seller') {
+    //     header("location: seller/home.php");
+    // } else if (isset($_SESSION) || $_SESSION['user']['account_type'] == 'buyer') {
+    //     header("location: buyer/home.php");
+    // }
+    // var_dump($_SESSION);
 }
-// session_unset();
-// session_destroy();
 
-var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
