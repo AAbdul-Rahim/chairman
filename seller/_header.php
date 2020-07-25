@@ -34,7 +34,7 @@
                         <a class="nav-link navbar_a" href="records.php">records</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar_a" href="signout.php">signout</a>
+                        <a class="nav-link navbar_a" href="../logout.php">signout</a>
                     </li>
                 </ul>
             </div>
