@@ -31,24 +31,6 @@ include_once "./_header.php";
     </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 
 
