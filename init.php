@@ -38,7 +38,13 @@ function login($username, $password)
             // store user in session
             $_SESSION['user'] = $result;
             // redirect user to the appropraite page
-            // header("location: ")
+            if (isset($_SESSION) && $_SESSION['user']['account_type'] == 'admin') {
+                header("location: admin/home.php");
+            } else if (isset($_SESSION) && $_SESSION['user']['account_type'] == 'seller') {
+                header("location: seller/home.php");
+            } else if (isset($_SESSION) && $_SESSION['user']['account_type'] == 'buyer') {
+                header("location: buyer/home.php");
+            }
         }
     } else {
         // show error message
@@ -59,6 +65,14 @@ function addUser($username, $email, $phone, $password, $account_type)
         mysqli_query($connection, $sql);
         return true;
     }
+}
+
+function updateUser($username, $email, $phone, $account_type)
+{
+    global $connection;
+    $sql = "UPDATE  users SET username = '$username', email = '$email', phone = '$phone', account_type = '$account_type';";
+    mysqli_query($connection, $sql);
+    return true;
 }
 
 function userExist($username)
