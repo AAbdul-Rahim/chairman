@@ -36,6 +36,9 @@
                         <a class="nav-link navbar_a" href="records.php">records</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link navbar_a" href="report.php">Report</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link navbar_a" href="produce.php">Produce</a>
                     </li>
                     <li class="nav-item">
