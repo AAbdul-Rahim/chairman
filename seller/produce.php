@@ -1,10 +1,10 @@
 <?php
 include_once "../init.php";
-$title = "ALL PRODUCE";
+$title = "MY PRODUCE";
 include_once "./_header.php";
 
 // get all produce
-$sql = "SELECT * FROM produce";
+$sql = "SELECT * FROM produce WHERE seller = '". $_SESSION['user']['username'] ."'";
 $query = mysqli_query($connection, $sql);
 $result = $query ? mysqli_fetch_all($query, $resulttype = MYSQLI_ASSOC ) : false;
 
@@ -23,7 +23,6 @@ $result = $query ? mysqli_fetch_all($query, $resulttype = MYSQLI_ASSOC ) : false
                     <th class="th-sm">Name</th>
                     <th class="th-sm">Price</th>
                     <th class="th-sm">Quantity</th>
-                    <th class="th-sm">Seller</th>
                     <th class="th-sm">Produce Type</th>
                     <th class="th-sm">Edit</th>
                     <th class="th-sm">Delete</th>
@@ -38,10 +37,9 @@ $result = $query ? mysqli_fetch_all($query, $resulttype = MYSQLI_ASSOC ) : false
                         <td><?= $name; ?></td>
                         <td><?= $price; ?></td>
                         <td><?= $quantity; ?></td>
-                        <td><?= $seller; ?></td>
                         <td><?= $produce_type; ?></td>
-                        <td><a href="#" class="btn btn-outline-success">Edit</a></td>
-                        <td><a href="#" class="btn btn-outline-danger">delete</a></td>
+                        <td><a href="update_produce.php?id=<?= $produce_id ?>" class="btn btn-outline-success fa fa-edit">Edit</a></td>
+                        <td><a href="delete_produce.php?id=<?= $produce_id ?>" class="btn btn-outline-danger fa fa-trash" onclick="delete ()">Delete</a></td>
                     </tr>
             <?php endforeach ?>
             <?php endif ?>
@@ -53,7 +51,6 @@ $result = $query ? mysqli_fetch_all($query, $resulttype = MYSQLI_ASSOC ) : false
                     <th>Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
-                    <th>Seller</th>
                     <th>Produce Type</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -72,23 +69,24 @@ $result = $query ? mysqli_fetch_all($query, $resulttype = MYSQLI_ASSOC ) : false
 
 
 
-<!-- footer -->
-<?php include_once '../footer.php'; ?>
 
 
 <!-- js files -->
-<script src="../js/jquery-3.4.1.slim.min.js" charset="utf-8"></script>
+<!--<script src="../js/jquery-3.4.1.slim.min.js" charset="utf-8"></script>-->
 <script src="../js/popper.min.js" charset="utf-8"></script>
 <script src="../js/bootstrap.min.js" charset="utf-8"></script>
 <script src="../js/jquery-3.4.1.min.js" charset="utf-8"></script>
-<script src="../js/main.js" charset="utf-8"></script>
-<script src="../mdbootstrap/js_1/addons/datatables.min.js"></script>
+
 <script>
+
     $(document).ready(function() {
         $('#dtBasicExample').DataTable();
         $('.dataTables_length').addClass('bs-select');
     });
+
+
 </script>
+<script src="../mdbootstrap/js_1/addons/datatables.min.js"></script>
 </body>
 
 </html>
