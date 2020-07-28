@@ -9,6 +9,8 @@
     <!-- css files -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../mdbootstrap/css_1/addons/datatables.min.css">
+    <link rel="stylesheet" href="../mdbootstrap/js_1/bootstrap.min.js">
     <link rel="stylesheet" href="../css/style.css">
 
     <title><?= $title; ?></title>
@@ -25,13 +27,16 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav  ml-auto navbar_ul">
                     <li class="nav-item active">
-                        <a class="nav-link navbar_a active" href="#home">seller's home</a>
+                        <a class="nav-link navbar_a active" href="home.php">home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar_a" href="produce.php">add produce</a>
+                        <a class="nav-link navbar_a" href="add_produce.php">add produce</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link navbar_a" href="records.php">records</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar_a" href="produce.php">Produce</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link navbar_a" href="../logout.php">signout</a>

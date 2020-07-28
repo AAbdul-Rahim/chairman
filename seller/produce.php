@@ -1,52 +1,70 @@
 <?php
-$title = "ADD PRODUCE";
+include_once "../init.php";
+$title = "ALL PRODUCE";
 include_once "./_header.php";
+
+// get all produce
+$sql = "SELECT * FROM produce";
+$query = mysqli_query($connection, $sql);
+$result = $query ? mysqli_fetch_all($query, $resulttype = MYSQLI_ASSOC ) : false;
+
+//var_dump($result);
+//die();
+
 ?>
 
 <section class="add-produce">
     <div class="produce-box">
-        <h4 class="produce-h">add produce</h4>
-        <form action="" class="form2">
-            <div>
-                <div class="form2-label">upload image</div>
-                <input type="file" id="form2-img">
-            </div>
-            <div>
-                <div class="form2-label">produce type</div>
-                <select name="" id="form2-input">
-                    <option>Select Produce Type</option>
-                    <option value="Cereals">Cereals</option>
-                    <option value="Legumes">Legumes</option>
-                    <option value="Root Tubers">Root Tubers</option>
-                    <option value="Vegetables">Vegetables</option>
-                </select>
-            </div>
-            <div>
-                <div class="form2-label">produce name</div>
-                <input type="text" id="form2-input">
-            </div>
-            <div>
-                <div class="form2-label">produce quantity</div>
-                <input type="text" id="form2-input">
-            </div>
-            <div>
-                <div class="form2-label">produce price</div>
-                <input type="text" id="form2-input">
-            </div>
-            <div>
-                <input type="submit" value="add produce" id="form2-submit">
-            </div>
-        </form>
+
+        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm">Product Image</th>
+                    <th class="th-sm">Name</th>
+                    <th class="th-sm">Price</th>
+                    <th class="th-sm">Quantity</th>
+                    <th class="th-sm">Seller</th>
+                    <th class="th-sm">Produce Type</th>
+                    <th class="th-sm">Edit</th>
+                    <th class="th-sm">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php if($result && !empty($result)): ?>
+            <?php foreach($result as $data): ?>
+                    <?php extract($data); ?>
+                    <tr>
+                        <td><img style="width: 100px;" src="<?= "uploads/" . $image; ?>" alt="produce image"/></td>
+                        <td><?= $name; ?></td>
+                        <td><?= $price; ?></td>
+                        <td><?= $quantity; ?></td>
+                        <td><?= $seller; ?></td>
+                        <td><?= $produce_type; ?></td>
+                        <td><a href="#" class="btn btn-outline-success">Edit</a></td>
+                        <td><a href="#" class="btn btn-outline-danger">delete</a></td>
+                    </tr>
+            <?php endforeach ?>
+            <?php endif ?>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Product Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Seller</th>
+                    <th>Produce Type</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
 
 </div>
 
@@ -64,6 +82,13 @@ include_once "./_header.php";
 <script src="../js/bootstrap.min.js" charset="utf-8"></script>
 <script src="../js/jquery-3.4.1.min.js" charset="utf-8"></script>
 <script src="../js/main.js" charset="utf-8"></script>
+<script src="../mdbootstrap/js_1/addons/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#dtBasicExample').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
+</script>
 </body>
 
 </html>
