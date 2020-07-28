@@ -1,6 +1,14 @@
 <?php
+include_once "../init.php";
 $title = "HOME";
 include_once "./_header.php";
+
+//get all the produce available on the site
+
+$sql = "SELECT * FROM produce";
+$query = mysqli_query($connection, $sql);
+$result = $query ? mysqli_fetch_all($query, $resulttype= MYSQLI_ASSOC) : false;
+
 ?>
 
 <section id="home" class="home">
@@ -33,148 +41,25 @@ include_once "./_header.php";
 </section>
 
 <section class="buy" id="buy">
+    <?php if(!empty($result)):  ?>
+
     <div id="cereal" class="buy_pros">
-        <h6 class="buy-head-bg">cereals</h6>
         <div class="container">
             <div class="row">
+        <?php foreach($result as $data): ?>
+            <?php extract($data); ?>
                 <div class="col-md-3 pro_img">
-                    <img src="../img/rice1.jpg" alt="">
-                    <h6 class="pro_title">rice</h6>
-                    <a href="cereal.php">buy</a>
+                    <img src="../seller/uploads/<?= $image ?>" alt="">
+                    <h6 class="pro_title"><?= $name ?></h6>
+                    <a href="#">buy</a>
                 </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/millet1.jpg" alt="">
-                    <h6 class="pro_title">millet</h6>
-                    <a href="cereal.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/maize2.jpg" alt="">
-                    <h6 class="pro_title">maize</h6>
-                    <a href="cereal.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/rice3.jpg" alt="">
-                    <h6 class="pro_title">rice</h6>
-                    <a href="cereal.php">buy</a>
-                </div>
+        <?php endforeach ?>
             </div>
         </div>
     </div>
 
-    <!-- root tuber -->
-    <div id="root" class="buy_pros">
-        <h6 class="buy-head-bg">root tubers</h6>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 pro_img">
-                    <img src="../img/radish1.jpg" alt="">
-                    <h6 class="pro_title">radish</h6>
-                    <a href="root.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/yam2.jpg" alt="">
-                    <h6 class="pro_title">yam</h6>
-                    <a href="root.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/cassava1.jpg" alt="">
-                    <h6 class="pro_title">cassava</h6>
-                    <a href="root.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/potato2.jpg" alt="">
-                    <h6 class="pro_title">potatoes</h6>
-                    <a href="root.php">buy</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- legumes -->
-    <div id="legume" class="buy_pros">
-        <h6 class="buy-head-bg">legumes</h6>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 pro_img">
-                    <img src="../img/beans.jpg" alt="">
-                    <h6 class="pro_title">beans</h6>
-                    <a href="legume.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/sorghum2.jpg" alt="">
-                    <h6 class="pro_title">sorghum</h6>
-                    <a href="legume.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/soybean3.jpg" alt="">
-                    <h6 class="pro_title">soybeans</h6>
-                    <a href="legume.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/groundnut1.jpg" alt="">
-                    <h6 class="pro_title">groundnuts</h6>
-                    <a href="legume.php">buy</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- vegetables -->
-    <div id="vegetable" class="buy_pros">
-        <h6 class="buy-head-bg">vegetables</h6>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 pro_img">
-                    <img src="../img/cucumber2.jpg" alt="">
-                    <h6 class="pro_title">cucumber</h6>
-                    <a href="vegetable.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/carrot1.jpg" alt="">
-                    <h6 class="pro_title">carrots</h6>
-                    <a href="vegetable.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/tomato3.jpg" alt="">
-                    <h6 class="pro_title">tomatoes</h6>
-                    <a href="vegetable.php">buy</a>
-                </div>
-                <div class="col-md-3 pro_img">
-                    <img src="../img/garlic1.jpg" alt="">
-                    <h6 class="pro_title">garlic</h6>
-                    <a href="vegetable.php">buy</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php endif ?>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-<!-- footer -->
-<?php include_once '../footer.php'; ?>
 
 
 <!-- js files -->

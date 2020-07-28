@@ -25,16 +25,16 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav  ml-auto navbar_ul">
                     <li class="nav-item active">
-                        <a class="nav-link navbar_a" href="home.php">buyer's home</a>
+                        <a class="nav-link navbar_a" href="home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar_a" href="records.php">records</a>
+                        <a class="nav-link navbar_a" href="records.php">Records</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar_a active" href="cart.php">cart</a>
+                        <a class="nav-link navbar_a active" href="cart.php">Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar_a" href="../logout.php">signout</a>
+                        <a class="nav-link navbar_a" href="../logout.php">Signout</a>
                     </li>
                 </ul>
             </div>
