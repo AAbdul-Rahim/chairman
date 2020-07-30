@@ -51,7 +51,7 @@ $result = $query ? mysqli_fetch_all($query, $resulttype= MYSQLI_ASSOC) : false;
                 <div class="col-md-3 pro_img">
                     <img src="../seller/uploads/<?= $image ?>" alt="">
                     <h6 class="pro_title"><?= $name ?></h6>
-                    <a href="#">buy</a>
+                    <a href="single.php">buy</a>
                 </div>
         <?php endforeach ?>
             </div>

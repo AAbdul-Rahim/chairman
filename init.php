@@ -37,7 +37,7 @@ function login($username, $password)
         if (password_verify($password, $stored_password)) {
             // store user in session
             $_SESSION['user'] = $result;
-            // redirect user to the appropraite page
+            // redirect user to the appropriate page
             if (isset($_SESSION) && $_SESSION['user']['account_type'] == 'admin') {
                 header("location: admin/home.php");
             } else if (isset($_SESSION) && $_SESSION['user']['account_type'] == 'seller') {
