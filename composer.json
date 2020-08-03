@@ -1,0 +1,13 @@
+{
+    "name": "user/chairman",
+    "description": "project work",
+    "authors": [
+        {
+            "name": "MahmudSuleman",
+            "email": "mudisheikh@outlook.com"
+        }
+    ],
+    "require": {
+        "mpdf/mpdf": "^8.0"
+    }
+}

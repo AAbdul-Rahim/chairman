@@ -1,53 +1,43 @@
 <?php
+include_once "../init.php";
 $title = "RECORDS";
 include_once "./_header.php";
+
+//get all purchases available to seller
+
+$sql = "SELECT * FROM purchase WHERE seller = '".$_SESSION['user']['username']."'";
+$query = mysqli_query($connection, $sql);
+//var_dump($query);
+//die();
 ?>
 <section class="record-table">
     <h4>record of purchase made</h4>
     <table class="table table-borderless all-table">
         <thead>
             <tr>
-                <th scope="col">s/n</th>
                 <th scope="col">produce type</th>
                 <th scope="col">produce name</th>
                 <th scope="col">quantity</th>
-                <th scope="col">remaining</th>
-                <th>action</th>
             </tr>
         </thead>
         <tbody>
+        <?php while($row = mysqli_fetch_assoc($query)): ?>
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>21/43/6374</td>
-                <td>
-                    <span class="cart-btn1">
-                        <a href="">update</a>
-                    </span>
-                    <span class="cart-btn2">
-                        <a href="">delete</a>
-                    </span>
-
-                </td>
+                <td><?= $row['produce_type']; ?></td>
+                <td><?= $row['produce_name']; ?></td>
+                <td><?= $row['quantity']; ?></td>
+<!--                <td>-->
+<!--                    <span class="cart-btn1">-->
+<!--                        <a href="">update</a>-->
+<!--                    </span>-->
+<!--                    <span class="cart-btn2">-->
+<!--                        <a href="">delete</a>-->
+<!--                    </span>-->
+<!---->
+<!--                </td>-->
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>21/43/6374</td>
-                <td>
-                    <span class="cart-btn1">
-                        <a href="">update</a>
-                    </span>
-                    <span class="cart-btn2">
-                        <a href="">delete</a>
-                    </span>
+        <?php endwhile ?>
 
-                </td>
-            </tr>
         </tbody>
     </table>
 </section>
