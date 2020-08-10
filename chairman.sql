@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2020 at 08:49 PM
+-- Generation Time: Aug 10, 2020 at 12:32 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `chairman`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `produce_id` varchar(255) NOT NULL,
+  `buyer` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `produce_id`, `buyer`) VALUES
+(2, '5f206eb58909f', 'buyer1'),
+(4, '5f2753f0d3fb5', 'admin1'),
+(5, '5f206da65d787', 'admin1'),
+(6, '5f206eb58909f', 'admin1');
 
 -- --------------------------------------------------------
 
@@ -44,7 +66,34 @@ CREATE TABLE `produce` (
 
 INSERT INTO `produce` (`produce_id`, `name`, `price`, `quantity`, `image`, `produce_type`, `seller`) VALUES
 ('5f206da65d787', 'Beans', '200.00', 22, '5f206da65d787.jpg', 'Cereals', 'buyer1'),
-('5f206eb58909f', 'Cassava', '20.00', 20, '5f206eb58909f.jpg', 'Root Tubers', 'buyer1');
+('5f206eb58909f', 'Cassava', '20.00', 20, '5f206eb58909f.jpg', 'Root Tubers', 'buyer1'),
+('5f2753f0d3fb5', 'Carrot', '20.00', 20, '5f2753f0d3fb5.jpg', 'Vegetables', 'admin1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchase`
+--
+
+CREATE TABLE `purchase` (
+  `id` int(11) NOT NULL,
+  `produce_id` varchar(255) NOT NULL,
+  `produce_name` varchar(255) NOT NULL,
+  `produce_type` varchar(255) NOT NULL,
+  `buyer` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `seller` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`id`, `produce_id`, `produce_name`, `produce_type`, `buyer`, `quantity`, `seller`) VALUES
+(1, '5f206eb58909f', 'Cassava', 'Root Tubers', 'buyer1', 5, 'buyer1'),
+(2, '5f206eb58909f', 'Cassava', 'Root Tubers', 'buyer1', 5, 'buyer1'),
+(3, '5f206eb58909f', 'Cassava', 'Root Tubers', 'buyer1', 2, 'buyer1'),
+(4, '5f2753f0d3fb5', 'Carrot', 'Vegetables', 'admin1', -5, 'admin1');
 
 -- --------------------------------------------------------
 
@@ -66,19 +115,31 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `phone`, `account_type`, `password`) VALUES
-(2, 'admin1', 'user1@users.com', '+1111111111', 'admin', '$2y$10$EuLb4uQStOytdCKRSuuMoODz.yOSUrQATWldbeuq/vGTeOpOKfZHy'),
-(3, 'seller1', 'seller1@sellers.com', '+222222222222', 'seller', '$2y$10$oVTxV1KzFHqxu6U8Vzi5Q.OV2FRWa963LkYMrffixSF06LLt5pW06'),
-(4, 'buyer1', 'buyer1@buyers.com', '+333333333', 'buyer', '$2y$10$Om685.W00SUN8JNASVFunea22MOhyWMaSCA.V.chDmoKFe3sjjzhW');
+(2, 'seller1', 'user1@users.com', '+1111111111', 'seller', '$2y$10$EuLb4uQStOytdCKRSuuMoODz.yOSUrQATWldbeuq/vGTeOpOKfZHy'),
+(3, 'buyer1', 'buyer1@buyers.com', '+1111111222', 'buyer', '$2y$10$FR8TqjhSoZ6KkOtJf5RRO.m3p/ZQeFiVnw75DxmKg/c3Euc2BzenC'),
+(4, 'admin1', 'admin@admin.com', '+233241810000', 'admin', '$2y$10$/Qfn1iyBJKoVaLefd4/jJ.24mnstTdW/mL/BKZfFuTv23lIWACUGG');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `produce`
 --
 ALTER TABLE `produce`
   ADD PRIMARY KEY (`produce_id`);
+
+--
+-- Indexes for table `purchase`
+--
+ALTER TABLE `purchase`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -89,6 +150,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `purchase`
+--
+ALTER TABLE `purchase`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

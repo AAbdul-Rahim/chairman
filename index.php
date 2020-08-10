@@ -1,67 +1,77 @@
+<?php
+include_once "init.php";
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    login($username, $password);
+    // if (isset($_SESSION) || $_SESSION['user']['account_type'] == 'admin') {
+    //     header("location: admin/home.php");
+    // } else if (isset($_SESSION) || $_SESSION['user']['account_type'] == 'seller') {
+    //     header("location: seller/home.php");
+    // } else if (isset($_SESSION) || $_SESSION['user']['account_type'] == 'buyer') {
+    //     header("location: buyer/home.php");
+    // }
+    // var_dump($_SESSION);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=0.1">
-  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
 
-  <!-- css files -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
+    <!-- css files -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
-  <title>HOME</title>
+    <title>USER LOGIN</title>
 </head>
 
 <body>
-  <div class="site_container">
-    <nav class="navbar navbar-expand-lg sticky-top navbar_bg">
-      <a class="navbar-brand logo" href="#">Navbar</a>
-      <button class="navbar-toggler toggle_btn" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav  ml-auto navbar_ul">
-          <li class="nav-item active">
-            <a class="nav-link navbar_a" href="#">home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbar_a" href="#">about us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbar_a" href="#">contact us</a>
-          </li>
-
-          <li class="nav-item navbar_a">
-            <a href="login.php">login</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link navbar_a" href="seller/login.php">seller</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbar_a" href="buyer/login.php">buyer</a>
-          </li> -->
-
-        </ul>
-      </div>
-    </nav>
-  </div>
+    <div class="site_container">
+        <div class="login_container">
+            <div class="login_box">
+                <form action="index.php" method="POST" class="form1">
+                    <h6 id="form1_fh">Please Login</h6>
+                    <?php include_once "errors.php"; ?>
+                    <div>
+                        <i class="fa fa-users form1_fa"></i>
+                        <input name="username" type="text" id="form1_input" placeholder="Username">
+                    </div>
+                    <div>
+                        <i class="fa fa-lock form1_fa"></i>
+                        <input name="password" type="password" id="form1_input" placeholder="Password">
+                    </div>
+                    <div>
+                        <input name="submit" type="submit" value="login" id="form1_submit">
+                    </div>
+                    <a href="../index.php">
+                        <i class="fa fa-angle-double-left"></i>
+                        go back
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
 
+    <!-- footer -->
+    <?php include_once 'footer.php'; ?>
 
 
-  <!-- footer -->
-  <?php include_once 'footer.php'; ?>
-
-
-  <!-- js files -->
-  <script src="js/jquery-3.4.1.slim.min.js" charset="utf-8"></script>
-  <script src="js/popper.min.js" charset="utf-8"></script>
-  <script src="js/bootstrap.min.js" charset="utf-8"></script>
-  <script src="js/jquery-3.4.1.min.js" charset="utf-8"></script>
-  <script src="js/main.js" charset="utf-8"></script>
+    <!-- js files -->
+    <script src="../js/jquery-3.4.1.slim.min.js" charset="utf-8"></script>
+    <script src="../js/popper.min.js" charset="utf-8"></script>
+    <script src="../js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../js/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="../js/main.js" charset="utf-8"></script>
 </body>
 
 </html>
