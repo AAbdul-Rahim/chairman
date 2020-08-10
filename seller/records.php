@@ -5,7 +5,7 @@ include_once "./_header.php";
 
 //get all purchases available to seller
 
-$sql = "SELECT * FROM purchase WHERE seller = '".$_SESSION['user']['username']."'";
+$sql = "SELECT * FROM purchase WHERE seller = '" . $_SESSION['user']['username'] . "'";
 $query = mysqli_query($connection, $sql);
 //var_dump($query);
 //die();
@@ -21,22 +21,13 @@ $query = mysqli_query($connection, $sql);
             </tr>
         </thead>
         <tbody>
-        <?php while($row = mysqli_fetch_assoc($query)): ?>
-            <tr>
-                <td><?= $row['produce_type']; ?></td>
-                <td><?= $row['produce_name']; ?></td>
-                <td><?= $row['quantity']; ?></td>
-<!--                <td>-->
-<!--                    <span class="cart-btn1">-->
-<!--                        <a href="">update</a>-->
-<!--                    </span>-->
-<!--                    <span class="cart-btn2">-->
-<!--                        <a href="">delete</a>-->
-<!--                    </span>-->
-<!---->
-<!--                </td>-->
-            </tr>
-        <?php endwhile ?>
+            <?php while ($row = mysqli_fetch_assoc($query)) : ?>
+                <tr>
+                    <td><?= $row['produce_type']; ?></td>
+                    <td><?= $row['produce_name']; ?></td>
+                    <td><?= $row['quantity']; ?></td>
+                </tr>
+            <?php endwhile ?>
 
         </tbody>
     </table>

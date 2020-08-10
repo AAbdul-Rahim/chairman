@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2020 at 12:32 PM
+-- Generation Time: Aug 10, 2020 at 12:59 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -65,9 +65,8 @@ CREATE TABLE `produce` (
 --
 
 INSERT INTO `produce` (`produce_id`, `name`, `price`, `quantity`, `image`, `produce_type`, `seller`) VALUES
-('5f206da65d787', 'Beans', '200.00', 22, '5f206da65d787.jpg', 'Cereals', 'buyer1'),
-('5f206eb58909f', 'Cassava', '20.00', 20, '5f206eb58909f.jpg', 'Root Tubers', 'buyer1'),
-('5f2753f0d3fb5', 'Carrot', '20.00', 20, '5f2753f0d3fb5.jpg', 'Vegetables', 'admin1');
+('5f206da65d787', 'Beans', '200.00', 22, '5f206da65d787.jpg', 'Cereals', 'seller1'),
+('5f2753f0d3fb5', 'Carrot', '20.00', 20, '5f2753f0d3fb5.jpg', 'Vegetables', 'seller1');
 
 -- --------------------------------------------------------
 
@@ -90,10 +89,9 @@ CREATE TABLE `purchase` (
 --
 
 INSERT INTO `purchase` (`id`, `produce_id`, `produce_name`, `produce_type`, `buyer`, `quantity`, `seller`) VALUES
-(1, '5f206eb58909f', 'Cassava', 'Root Tubers', 'buyer1', 5, 'buyer1'),
-(2, '5f206eb58909f', 'Cassava', 'Root Tubers', 'buyer1', 5, 'buyer1'),
-(3, '5f206eb58909f', 'Cassava', 'Root Tubers', 'buyer1', 2, 'buyer1'),
-(4, '5f2753f0d3fb5', 'Carrot', 'Vegetables', 'admin1', -5, 'admin1');
+(1, '5f206eb58909f', 'Cassava', 'Root Tubers', 'buyer1', 5, 'seller1'),
+(2, '5f206eb58909f', 'Cassava', 'Root Tubers', 'buyer1', 5, 'seller1'),
+(3, '5f206eb58909f', 'Cassava', 'Root Tubers', 'buyer1', 2, 'seller1');
 
 -- --------------------------------------------------------
 
