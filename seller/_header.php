@@ -19,7 +19,7 @@
 <body>
     <div class="site_container">
         <nav class="navbar navbar-expand-lg sticky-top navbar_bg">
-            <a class="navbar-brand logo" href="#">Navbar</a>
+            <a class="navbar-brand logo" href="#">Farmers Store</a>
             <button class="navbar-toggler toggle_btn" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
@@ -34,9 +34,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link navbar_a" href="records.php">records</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar_a" href="report.php">Report</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link navbar_a" href="produce.php">Produce</a>

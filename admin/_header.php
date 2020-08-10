@@ -17,7 +17,7 @@
 <body>
     <div class="site_container">
         <nav class="navbar navbar-expand-lg sticky-top navbar_bg">
-            <a class="navbar-brand logo" href="#">Navbar</a>
+            <a class="navbar-brand logo" href="#">Farmer's Store</a>
             <button class="navbar-toggler toggle_btn" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
